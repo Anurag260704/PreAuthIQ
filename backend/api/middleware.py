@@ -108,8 +108,8 @@ def attach_middleware(app: FastAPI) -> None:
     app.add_middleware(RequestSizeLimitMiddleware, max_bytes=MAX_REQUEST_BODY_BYTES)
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=_get_allowed_origins(),
+        allow_origins=["*"],
         allow_methods=["*"],
         allow_headers=["*"],
-        allow_credentials=True,
+        allow_credentials=False,
     )
