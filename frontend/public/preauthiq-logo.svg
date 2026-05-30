@@ -1,0 +1,28 @@
+<svg width="420" height="90" viewBox="0 0 420 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="brandGrad" x1="20" y1="14" x2="86" y2="76" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#09D4FF" />
+      <stop offset="1" stop-color="#AA2DFF" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(8 6)">
+    <path
+      d="M36 0C26 8 14 8 6 18C0 25 0 35 3 44C6 53 12 61 18 67C24 73 30 76 36 78C42 76 48 73 54 67C60 61 66 53 69 44C72 35 72 25 66 18C58 8 46 8 36 0Z"
+      stroke="url(#brandGrad)"
+      stroke-width="4"
+      fill="none"
+    />
+    <circle cx="36" cy="38" r="15" stroke="url(#brandGrad)" stroke-width="3" fill="none" />
+    <path d="M26 37C30 34 34 34 37 37C40 40 44 40 47 37" stroke="url(#brandGrad)" stroke-width="2.4" stroke-linecap="round" />
+    <path d="M26 44C30 41 34 41 37 44C40 47 44 47 47 44" stroke="url(#brandGrad)" stroke-width="2.4" stroke-linecap="round" />
+    <path d="M36 23V53" stroke="url(#brandGrad)" stroke-width="2.4" stroke-linecap="round" />
+    <circle cx="19" cy="14" r="2.2" fill="#09D4FF" />
+    <circle cx="53" cy="14" r="2.2" fill="#AA2DFF" />
+  </g>
+
+  <text x="96" y="58" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="700" letter-spacing="-0.5">
+    <tspan fill="#0044B8">PreAuth</tspan>
+    <tspan fill="#C12AFF">IQ</tspan>
+  </text>
+</svg>
