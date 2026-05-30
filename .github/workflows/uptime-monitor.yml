@@ -1,27 +1,30 @@
-name: MedClear Uptime
+name: PreAuthIQ Uptime
 
 on:
   schedule:
-    # Run every 10 minutes to keep Render services awake
+    # Every 10 minutes — Render free tier sleeps after ~15 min idle
     - cron: "*/10 * * * *"
   workflow_dispatch:
-    # Allow manual trigger
+
+env:
+  BACKEND_URL: https://preauthiq.onrender.com
+  FRONTEND_URL: https://pre-auth-iq.vercel.app
 
 jobs:
   ping-services:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Backend
+      - name: Ping Render backend
         run: |
-          echo "Pinging backend..."
-          curl -f -s -o /dev/null -w "Backend status: %{http_code}\n" \
-            https://medclear-api.onrender.com/api/v1/status
-      
-      - name: Ping Frontend
-        run: |
-          echo "Pinging frontend..."
-          curl -f -s -o /dev/null -w "Frontend status: %{http_code}\n" \
-            https://medclear-app.onrender.com/
+          echo "Pinging ${BACKEND_URL}/api/v1/status ..."
+          curl -f -sS --max-time 30 -o /dev/null -w "Backend HTTP %{http_code} in %{time_total}s\n" \
+            "${BACKEND_URL}/api/v1/status"
 
-      - name: Log Success
-        run: echo "Uptime check completed successfully"
+      - name: Ping Vercel frontend
+        run: |
+          echo "Pinging ${FRONTEND_URL} ..."
+          curl -f -sS --max-time 30 -o /dev/null -w "Frontend HTTP %{http_code} in %{time_total}s\n" \
+            "${FRONTEND_URL}/"
+
+      - name: Log success
+        run: echo "Uptime check completed at $(date -u +%Y-%m-%dT%H:%M:%SZ)"

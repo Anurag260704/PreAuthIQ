@@ -12,7 +12,7 @@ services:
       - key: MISTRAL_API_KEY
       - key: API_KEY
       - key: ALLOWED_ORIGINS
-        value: https://medclear-app.onrender.com
+        value: https://pre-auth-iq.vercel.app,https://pre-auth-ht40o7hfy-anurag-thakurs-projects-569da629.vercel.app
       - key: PYTHONUNBUFFERED
         value: "1"
       - key: ENVIRONMENT
@@ -26,5 +26,5 @@ services:
     publishPath: out
     envVars:
       - key: NEXT_PUBLIC_API_URL
-        value: https://medclear-api.onrender.com
+        value: https://preauthiq.onrender.com
     plan: free
