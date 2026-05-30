@@ -1,0 +1,15 @@
+[project]
+name = "medclear-ai"
+version = "0.2.0"
+
+[tool.pyright]
+ignore = [
+    "**/venv/**",
+    "**/.venv/**"
+]
+reportMissingImports = true
+reportUnknownVariableType = false
+reportUnknownMemberType = false
+reportUnknownParameterType = false
+reportMissingTypeArgument = false
+reportUntypedFunctionDecorator = false
