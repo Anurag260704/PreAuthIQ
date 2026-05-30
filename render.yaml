@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: medclear-backend
+    runtime: python
+    pythonVersion: "3.11"
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: MISTRAL_API_KEY
+      - key: API_KEY
+      - key: ALLOWED_ORIGINS
+        value: https://medclear-app.onrender.com
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: ENVIRONMENT
+        value: "production"
+    plan: free
+
+  - type: static
+    name: medclear-frontend
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    publishPath: out
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://medclear-api.onrender.com
+    plan: free
