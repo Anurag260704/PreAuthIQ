@@ -10,8 +10,8 @@ export function RawNotesInput({ value, onChange }: RawNotesInputProps) {
         value={value}
         onChange={e => onChange(e.target.value)}
         rows={5}
-        className="w-full rounded-md border border-[var(--border)] bg-[var(--card)] px-3 py-2 text-xs text-[var(--card-foreground)] focus:border-[var(--ring)] focus:outline-none focus:ring-1 focus:ring-[var(--ring)] font-mono"
-        placeholder="Paste clinical notes, H&P, imaging reports, or any unstructured case text here..."
+        className="premium-textarea font-mono text-xs"
+        placeholder="H&P excerpts · consult notes · imaging impressions · discharge summaries…"
       />
     </div>
   )

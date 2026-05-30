@@ -1,0 +1,114 @@
+{
+  "case_id": "PA-001",
+  "requested_service": "C5-C6 cervical decompression and fusion",
+  "recommendation": "NEED_MORE_INFO",
+  "confidence": "MEDIUM",
+  "clinical_summary": "58-year-old male with cervical spondylotic myelopathy with radiculopathy, presenting with difficulty in ADLs (buttoning shirt, handwriting deterioration, unsafe on stairs), and documented objective neurologic deficits (hyperreflexia, positive Hoffmann sign, reduced grip strength 4/5, sensory loss in C6 distribution). Imaging reveals severe C5-C6 canal stenosis with cord compression and T2 cord signal change. Comorbidities include type 2 diabetes, obesity (BMI 36), and obstructive sleep apnea on CPAP. Conservative therapy (10 weeks PT, NSAIDs, gabapentin, muscle relaxant, cervical epidural steroid injection) provided inadequate relief or worsened symptoms.",
+  "criteria_results": [
+    {
+      "criterion_id": "C1",
+      "criterion_name": "Imaging-pathology alignment",
+      "status": "MET",
+      "supporting_evidence": "MRI report demonstrates severe C5-C6 canal stenosis with cord compression and T2 cord signal change, directly corresponding to the patient's symptom pattern and neurologic findings (C6 radiculopathy, myelopathy signs).",
+      "gap_or_risk": null
+    },
+    {
+      "criterion_id": "C2",
+      "criterion_name": "Documented objective neurologic deficit",
+      "status": "MET",
+      "supporting_evidence": "Neurology note and surgeon exam document hyperreflexia, positive Hoffmann sign, reduced grip strength 4/5, and sensory loss in C6 distribution. These findings are consistent with cervical myelopathy and radiculopathy. PCP note (3 months prior) conflicts but is outweighed by recent specialist documentation.; Source: Neurology note + surgeon exam",
+      "gap_or_risk": "Contradiction with PCP note (3 months prior) stating no weakness. Weight given to recent specialist notes (neurology and surgeon) due to recency and specificity."
+    },
+    {
+      "criterion_id": "C3",
+      "criterion_name": "Adequate conservative therapy trial",
+      "status": "MET",
+      "supporting_evidence": "10 weeks of physical therapy, NSAIDs, gabapentin, muscle relaxant, and cervical epidural steroid injection were trialed. Documentation confirms inadequate response (PT worsened hand clumsiness, epidural relief <2 weeks).",
+      "gap_or_risk": null
+    },
+    {
+      "criterion_id": "C4",
+      "criterion_name": "Functional limitation on record",
+      "status": "PARTIAL",
+      "supporting_evidence": "PT note and HPI describe difficulty buttoning shirt, handwriting deterioration, unsafe on stairs, and reduced work productivity. However, the latest surgeon note does not explicitly restate these ADL limitations.; Source: PT note; partial mention in HPI",
+      "gap_or_risk": "Functional impairment is documented in PT note and HPI but absent from the most recent surgeon note, creating a documentation gap. Latest surgeon note does not explicitly state ADL failure or why ASC/outpatient is unsafe"
+    },
+    {
+      "criterion_id": "C5",
+      "criterion_name": "Inpatient site-of-care rationale",
+      "status": "PARTIAL",
+      "supporting_evidence": "Comorbidities (obesity BMI 36, type 2 diabetes, OSA on CPAP) and high-acuity findings (T2 cord signal change, gait instability with near-falls) support inpatient monitoring needs. However, the latest surgeon note does not explicitly justify why ASC/outpatient is unsafe.; Two near-falls in prior month due to gait instability",
+      "gap_or_risk": "Site-of-care rationale is clinically plausible but not explicitly documented in the most recent surgeon note. Latest surgeon note does not explicitly state ADL failure or why ASC/outpatient is unsafe"
+    },
+    {
+      "criterion_id": "C6",
+      "criterion_name": "Policy prerequisites satisfied",
+      "status": "PARTIAL",
+      "supporting_evidence": "No missing prerequisites identified. Required diagnostics (MRI) and consultations (neurology, surgeon) are completed. Step therapy (conservative care) is documented as failed.",
+      "gap_or_risk": "Latest surgeon note does not explicitly state ADL failure or why ASC/outpatient is unsafe"
+    }
+  ],
+  "criteria_met": [
+    "C1",
+    "C2",
+    "C3"
+  ],
+  "criteria_partial_or_unmet": [
+    "C4",
+    "C5",
+    "C6"
+  ],
+  "supporting_evidence": [
+    {
+      "source": "MRI report",
+      "excerpt": "Severe C5-C6 canal stenosis with cord compression and T2 cord signal change; moderate foraminal narrowing."
+    },
+    {
+      "source": "Neurology note | surgeon exam",
+      "excerpt": "Hyperreflexia, positive Hoffmann sign, reduced grip strength 4/5, sensory loss in C6 distribution."
+    },
+    {
+      "source": "PT note | HPI",
+      "excerpt": "Difficulty buttoning shirt, handwriting deterioration, unsafe on stairs, reduced work productivity."
+    },
+    {
+      "source": "Medical history",
+      "excerpt": "10 weeks physical therapy, NSAIDs, gabapentin, muscle relaxant, cervical epidural steroid injection with inadequate response."
+    },
+    {
+      "source": "Case input - complications/red flags",
+      "excerpt": "Two near-falls in prior month due to gait instability"
+    }
+  ],
+  "missing_information": [
+    "Explicit documentation of ADL failure in the latest surgeon note.",
+    "Explicit rationale in the latest surgeon note for why ASC/outpatient is unsafe.",
+    "Latest surgeon note should explicitly document ADL impairment attributable to the cervical myelopathy.",
+    "Request should explicitly justify why outpatient/ASC care is unsafe and why inpatient monitoring is medically necessary.",
+    "Provide updated documentation linking gait instability or near-falls to the inpatient site-of-care request.",
+    "Functional impairment is documented in PT note and HPI but absent from the most recent surgeon note, creating a documentation gap. Latest surgeon note does not explicitly state ADL failure or why ASC/outpatient is unsafe",
+    "Site-of-care rationale is clinically plausible but not explicitly documented in the most recent surgeon note. Latest surgeon note does not explicitly state ADL failure or why ASC/outpatient is unsafe",
+    "Latest surgeon note does not explicitly state ADL failure or why ASC/outpatient is unsafe"
+  ],
+  "provider_query": "Please provide: (1) Explicit documentation of ADL limitations (e.g., difficulty buttoning shirt, handwriting deterioration, unsafe on stairs) in the most recent surgeon note; (2) Explicit rationale for inpatient admission (e.g., comorbidity burden, monitoring needs, or post-procedure risk profile) in the surgeon note. Please document gait instability or recent falls/near-falls that support the requested level of care.",
+  "appeal_direction": null,
+  "flip_condition": "Likely approve once the latest surgeon note explicitly documents ADL limitations and inpatient site-of-care rationale.",
+  "validation_insights": {
+    "quality_score": 0.95,
+    "required_field_issues": [],
+    "enrichment_hints": [
+      "Attach source-cited evidence snippets from recent specialist notes."
+    ]
+  },
+  "consistency_score": 1.0,
+  "contradiction_risk_index": 0.57,
+  "appeal_readiness_score": 0.75,
+  "audit_flags": [
+    "High contradiction risk detected across evidence and criterion narratives.",
+    "Appeal packet is likely actionable with current evidence footprint."
+  ],
+  "processing_time_ms": 26094,
+  "step1_time_ms": 9280,
+  "step2_time_ms": 16797,
+  "model_used": "mistral-large-latest"
+}

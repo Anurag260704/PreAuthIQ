@@ -2,10 +2,23 @@
 
 PreAuthIQ is an AI-powered clinical prior authorization review platform. It reads a patient case packet, runs it through a structured 4-step pipeline using Mistral LLM, and produces a reviewer-ready decision with full evidence attribution, documentation gap analysis, and QA audit scores.
 
+## Assignment deliverables (recruiter checklist)
+
+| Deliverable | Location |
+|-------------|----------|
+| GitHub repository | This repo — [github.com/Anurag260704/PreAuthIQ](https://github.com/Anurag260704/PreAuthIQ) |
+| Backend API to test the skill | [https://preauthiq.onrender.com/docs](https://preauthiq.onrender.com/docs) — `POST /api/v1/review`, `POST /api/v1/review/upload` |
+| Frontend (select / upload case, view output) | [https://pre-auth-iq.vercel.app](https://pre-auth-iq.vercel.app) — `/dashboard`, `/review`, `/result` |
+| Example output — complex case (PA-001) | [`docs/examples/complex_case_output.json`](docs/examples/complex_case_output.json) |
+| Short README: approach, prompts, assumptions, limits, improvements | [`SUBMISSION.md`](SUBMISSION.md) |
+
+**Short submission narrative:** [SUBMISSION.md](SUBMISSION.md) · **Full deliverables map:** [docs/ASSIGNMENT.md](docs/ASSIGNMENT.md)
+
 ---
 
 ## Table of Contents
 
+0. [Assignment deliverables](#assignment-deliverables-recruiter-checklist)
 1. [What It Does](#what-it-does)
 2. [Architecture](#architecture)
 3. [Tech Stack](#tech-stack)
@@ -99,7 +112,6 @@ Each step has a single responsibility. If a step fails, the error identifies exa
 | Pydantic | 2.10.6 | Schema validation and serialization |
 | Mistral AI SDK | 1.5.2 | LLM client |
 | openpyxl | 3.1.5 | Excel workbook parsing |
-| pandas | 2.0.3 | Data processing utilities |
 | python-dotenv | 1.0.1 | Environment variable loading |
 | pytest | 8.3.5 | Test framework |
 | pytest-asyncio | 0.24.0 | Async test support |

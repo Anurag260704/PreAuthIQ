@@ -121,6 +121,20 @@ button, a, input, textarea {
          focus:border-[var(--ring)] focus:ring-2 focus:ring-[var(--ring)]/20 focus:outline-none resize-y;
 }
 
+.premium-input::placeholder,
+.premium-textarea::placeholder {
+  @apply text-xs font-normal italic text-[var(--muted-foreground)] opacity-90;
+}
+
+/* Field labels — distinct from input text and placeholder hints */
+.form-field-label {
+  @apply mb-1.5 flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--primary)];
+}
+
+.form-field-sublabel {
+  @apply mb-1 mt-2 block text-[10px] font-semibold uppercase tracking-wide text-[var(--muted-foreground)];
+}
+
 /* Primary button */
 .premium-button-primary {
   @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium 
@@ -140,10 +154,100 @@ button, a, input, textarea {
   @apply rounded-xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm;
 }
 
-/* Form section */
+/* Form section (legacy single card wrapper) */
 .form-section {
   @apply rounded-xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-sm;
 }
+
+/* Intake form — stacked panels (alternative to one big card) */
+.intake-panel-stack {
+  @apply space-y-4;
+}
+
+.intake-panel {
+  @apply overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--card)]
+         shadow-sm transition-shadow duration-200 hover:shadow-md;
+}
+
+.intake-panel-header {
+  @apply flex items-start gap-3 border-b border-[var(--border)] px-4 py-4 sm:px-5;
+  background: linear-gradient(
+    105deg,
+    color-mix(in srgb, var(--primary) 14%, transparent) 0%,
+    color-mix(in srgb, var(--card) 92%, transparent) 55%
+  );
+}
+
+.intake-panel-index {
+  @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-xl
+         bg-[var(--foreground)] text-xs font-bold tabular-nums text-[var(--background)];
+}
+
+.intake-panel-icon {
+  @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-xl
+         bg-[var(--card)] text-[var(--primary)] ring-1 ring-[var(--border)];
+}
+
+.intake-panel-title {
+  @apply text-sm font-semibold tracking-tight text-[var(--foreground)];
+}
+
+.intake-panel-desc {
+  @apply mt-0.5 text-xs leading-relaxed text-[var(--muted-foreground)];
+}
+
+.intake-panel-body {
+  @apply bg-[var(--muted)]/25 px-4 py-4 sm:px-5 sm:py-5;
+}
+
+.intake-panel-emerald .intake-panel-header {
+  background: linear-gradient(105deg, color-mix(in srgb, #16a34a 16%, transparent), transparent 60%);
+}
+.intake-panel-emerald .intake-panel-icon { @apply text-emerald-600; }
+
+.intake-panel-teal .intake-panel-header {
+  background: linear-gradient(105deg, color-mix(in srgb, #0d9488 14%, transparent), transparent 60%);
+}
+.intake-panel-teal .intake-panel-icon { @apply text-teal-600; }
+
+.intake-panel-sky .intake-panel-header {
+  background: linear-gradient(105deg, color-mix(in srgb, #0284c7 14%, transparent), transparent 60%);
+}
+.intake-panel-sky .intake-panel-icon { @apply text-sky-600; }
+
+.intake-panel-violet .intake-panel-header {
+  background: linear-gradient(105deg, color-mix(in srgb, #7c3aed 14%, transparent), transparent 60%);
+}
+.intake-panel-violet .intake-panel-icon { @apply text-violet-600; }
+
+.intake-panel-amber .intake-panel-header {
+  background: linear-gradient(105deg, color-mix(in srgb, #d97706 14%, transparent), transparent 60%);
+}
+.intake-panel-amber .intake-panel-icon { @apply text-amber-600; }
+
+.intake-panel-rose .intake-panel-header {
+  background: linear-gradient(105deg, color-mix(in srgb, #e11d48 12%, transparent), transparent 60%);
+}
+.intake-panel-rose .intake-panel-icon { @apply text-rose-600; }
+
+.intake-panel-slate .intake-panel-header {
+  background: linear-gradient(105deg, color-mix(in srgb, #64748b 12%, transparent), transparent 60%);
+}
+.intake-panel-slate .intake-panel-icon { @apply text-slate-600; }
+
+.intake-panel-lime .intake-panel-header {
+  background: linear-gradient(105deg, color-mix(in srgb, #65a30d 14%, transparent), transparent 60%);
+}
+.intake-panel-lime .intake-panel-icon { @apply text-lime-600; }
+
+html.dark .intake-panel-emerald .intake-panel-icon { @apply text-emerald-400; }
+html.dark .intake-panel-teal .intake-panel-icon { @apply text-teal-400; }
+html.dark .intake-panel-sky .intake-panel-icon { @apply text-sky-400; }
+html.dark .intake-panel-violet .intake-panel-icon { @apply text-violet-400; }
+html.dark .intake-panel-amber .intake-panel-icon { @apply text-amber-400; }
+html.dark .intake-panel-rose .intake-panel-icon { @apply text-rose-400; }
+html.dark .intake-panel-slate .intake-panel-icon { @apply text-slate-400; }
+html.dark .intake-panel-lime .intake-panel-icon { @apply text-lime-400; }
 
 /* Table */
 .premium-table {

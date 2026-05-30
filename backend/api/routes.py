@@ -23,8 +23,8 @@ from core.models import AppealDraftResponse, PreAuthCaseInput, PreAuthSkillOutpu
 from core.response_parser import ComplexCaseRow, SchemaFieldRow, TrainingCaseRow, parse_complex_case, parse_training_cases
 from core.training_notes import build_expanded_clinical_notes
 
-router = APIRouter(prefix="/api/v1", tags=["v1"])
-legacy_router = APIRouter(prefix="/api", tags=["legacy"])
+router = APIRouter(prefix="/api/v1")
+legacy_router = APIRouter(prefix="/api", include_in_schema=False)
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 
@@ -237,12 +237,17 @@ def _infer_primary_diagnosis(context: str) -> str:
     ) or "Unknown diagnosis"
 
 
-@router.get("/status")
+@router.get("/status", tags=["System"], summary="API health check")
 async def status() -> Dict[str, object]:
     return {"status": "ok", "model": DEFAULT_MISTRAL_MODEL}
 
 
-@router.post("/review", response_model=PreAuthSkillOutput)
+@router.post(
+    "/review",
+    response_model=PreAuthSkillOutput,
+    tags=["Review"],
+    summary="Run full pipeline on structured case JSON",
+)
 async def review_case(
     clinical_input: PreAuthCaseInput,
     engine=Depends(get_engine),
@@ -250,12 +255,22 @@ async def review_case(
     return await engine.process_case(clinical_input)
 
 
-@router.post("/review/appeal", response_model=AppealDraftResponse)
+@router.post(
+    "/review/appeal",
+    response_model=AppealDraftResponse,
+    tags=["Review"],
+    summary="Generate appeal draft from a completed report",
+)
 async def review_appeal(report: PreAuthSkillOutput) -> AppealDraftResponse:
     return generate_appeal_draft(report)
 
 
-@router.post("/review/upload", response_model=PreAuthSkillOutput)
+@router.post(
+    "/review/upload",
+    response_model=PreAuthSkillOutput,
+    tags=["Review"],
+    summary="Upload assignment .xlsx workbook and run pipeline",
+)
 async def review_upload(
     file: UploadFile = File(...),
     engine=Depends(get_engine),
@@ -326,18 +341,22 @@ async def review_upload(
         await file.close()
 
 
-@router.get("/samples")
+@router.get("/samples", tags=["Samples"], summary="List all training cases")
 async def list_samples() -> List[TrainingCaseRow]:
     return _load_training_cases()
 
 
-@router.get("/samples/complex")
+@router.get(
+    "/samples/complex",
+    tags=["Samples"],
+    summary="Get PA-001 complex-case input (assignment packet)",
+)
 async def get_complex_sample() -> PreAuthCaseInput:
     rows = _load_json("complex_case.json")
     return _complex_case_rows_to_input(cast(List[ComplexCaseRow], rows))
 
 
-@router.get("/samples/{sample_id}")
+@router.get("/samples/{sample_id}", tags=["Samples"], summary="Get one training case by ID")
 async def get_sample(sample_id: str) -> Dict[str, object]:
     for case in _load_training_cases():
         if case.get("case_id") == sample_id:
@@ -347,12 +366,12 @@ async def get_sample(sample_id: str) -> Dict[str, object]:
     raise HTTPException(status_code=404, detail=f"Sample {sample_id} not found.")
 
 
-@router.get("/fields")
+@router.get("/fields", tags=["Schema"], summary="List patient-data field glossary")
 async def list_fields() -> List[SchemaFieldRow]:
     return _load_schema_fields()
 
 
-@router.get("/fields/schema")
+@router.get("/fields/schema", tags=["Schema"], summary="OpenAPI JSON schemas for input and output")
 async def get_fields_schema() -> Dict[str, object]:
     return {
         "input": PreAuthCaseInput.model_json_schema(),
@@ -360,7 +379,11 @@ async def get_fields_schema() -> Dict[str, object]:
     }
 
 
-@router.get("/benchmark")
+@router.get(
+    "/benchmark",
+    tags=["Benchmark"],
+    summary="Run accuracy benchmark on all training cases",
+)
 async def run_benchmark(_: str = Depends(verify_api_key), engine=Depends(get_engine)) -> ValidationSummary:
     semaphore = get_benchmark_semaphore()
     async with semaphore:
@@ -419,7 +442,11 @@ class ProgressEvent(TypedDict):
     result: Optional[Union[ValidationResult, ValidationSummary]]
 
 
-@router.get("/benchmark/stream")
+@router.get(
+    "/benchmark/stream",
+    tags=["Benchmark"],
+    summary="Benchmark with Server-Sent Events progress stream",
+)
 async def run_benchmark_stream(
     _: str = Depends(verify_api_key),
     engine=Depends(get_engine),
@@ -453,17 +480,32 @@ async def run_benchmark_stream(
 
 
 def _legacy_aliases() -> None:
-    legacy_router.add_api_route("/health", status, methods=["GET"])
-    legacy_router.add_api_route("/analyze", review_case, methods=["POST"], response_model=PreAuthSkillOutput)
-    legacy_router.add_api_route("/analyze/appeal", review_appeal, methods=["POST"], response_model=AppealDraftResponse)
-    legacy_router.add_api_route("/analyze/upload", review_upload, methods=["POST"], response_model=PreAuthSkillOutput)
-    legacy_router.add_api_route("/cases", list_samples, methods=["GET"])
-    legacy_router.add_api_route("/cases/{sample_id}", get_sample, methods=["GET"])
-    legacy_router.add_api_route("/schema", list_fields, methods=["GET"])
-    legacy_router.add_api_route("/schema/json", get_fields_schema, methods=["GET"])
-    legacy_router.add_api_route("/complex-case/input", get_complex_sample, methods=["GET"])
-    legacy_router.add_api_route("/validate-all", run_benchmark, methods=["GET"])
-    legacy_router.add_api_route("/validate-all/stream", run_benchmark_stream, methods=["GET"])
+    """Backward-compatible /api/* paths (hidden from Swagger — use /api/v1/*)."""
+    legacy_router.add_api_route("/health", status, methods=["GET"], include_in_schema=False)
+    legacy_router.add_api_route(
+        "/analyze", review_case, methods=["POST"], response_model=PreAuthSkillOutput, include_in_schema=False
+    )
+    legacy_router.add_api_route(
+        "/analyze/appeal",
+        review_appeal,
+        methods=["POST"],
+        response_model=AppealDraftResponse,
+        include_in_schema=False,
+    )
+    legacy_router.add_api_route(
+        "/analyze/upload",
+        review_upload,
+        methods=["POST"],
+        response_model=PreAuthSkillOutput,
+        include_in_schema=False,
+    )
+    legacy_router.add_api_route("/cases", list_samples, methods=["GET"], include_in_schema=False)
+    legacy_router.add_api_route("/cases/{sample_id}", get_sample, methods=["GET"], include_in_schema=False)
+    legacy_router.add_api_route("/schema", list_fields, methods=["GET"], include_in_schema=False)
+    legacy_router.add_api_route("/schema/json", get_fields_schema, methods=["GET"], include_in_schema=False)
+    legacy_router.add_api_route("/complex-case/input", get_complex_sample, methods=["GET"], include_in_schema=False)
+    legacy_router.add_api_route("/validate-all", run_benchmark, methods=["GET"], include_in_schema=False)
+    legacy_router.add_api_route("/validate-all/stream", run_benchmark_stream, methods=["GET"], include_in_schema=False)
 
 
 _legacy_aliases()

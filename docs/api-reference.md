@@ -1,6 +1,6 @@
 # PreAuthIQ Backend API Documentation
 
-MedClear / PreAuthIQ prior authorization adjudication service — FastAPI backend.
+PreAuthIQ prior authorization copilot — FastAPI backend.
 
 ---
 

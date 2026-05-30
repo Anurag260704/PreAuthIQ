@@ -141,14 +141,17 @@ async def main():
     print("Running pipeline...")
     output = await run_engine(case_input)
 
-    out_dir = Path(__file__).parent.parent.parent / "outputs"
-    out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / "complex_case_output.json"
-
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(output.model_dump(), f, indent=2)
-
-    print(f"\nOutput saved: {out_path}")
+    payload = output.model_dump()
+    repo_root = Path(__file__).parent.parent.parent
+    out_paths = [
+        repo_root / "outputs" / "complex_case_output.json",
+        repo_root / "docs" / "examples" / "complex_case_output.json",
+    ]
+    for out_path in out_paths:
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=2)
+        print(f"Output saved: {out_path}")
     print(f"\nRecommendation:    {output.recommendation}")
     print(f"Confidence:        {output.confidence}")
     print(f"Criteria MET:      {output.criteria_met}")

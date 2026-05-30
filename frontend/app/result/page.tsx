@@ -90,11 +90,9 @@ export default function ResultPage() {
   return (
     <div className="max-w-5xl mx-auto space-y-6">
 
-      {/* ─── 1. VERDICT HERO ──────────────────────────────────────── */}
       <div>
         <RecommendationBanner output={r} />
 
-        {/* Action bar below hero */}
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <CopyButton text={buildMarkdownReport(r)} label="Copy Report" />
           <button onClick={handleExportPdf} className="inline-flex items-center gap-1.5 premium-button-secondary text-xs px-3 py-1.5">
@@ -124,19 +122,11 @@ export default function ResultPage() {
         </div>
       </div>
 
-      {/* ─── 2. MAIN CONTENT ─────────────────────────────────────── */}
       <div className="rounded-3xl border border-[var(--border)] bg-[var(--card)]/80 p-6 shadow-sm">
-
-        {/* Clinical Summary */}
         <ClinicalSummaryCard summary={r.clinical_summary} />
-
-        {/* Criteria Timeline */}
         <CriteriaTable criteria={r.criteria_results} />
-
-        {/* Supporting Evidence */}
         <EvidencePanel evidence={r.supporting_evidence} />
 
-        {/* Validation Insights */}
         {r.validation_insights && (
           <div className="report-section">
             <div className="flex items-center gap-2 mb-3">
@@ -175,20 +165,15 @@ export default function ResultPage() {
           </div>
         )}
 
-        {/* Missing info */}
         <div className="report-section">
           <MissingInfoPanel items={r.missing_information} />
         </div>
 
-        {/* Provider query */}
         <ProviderQueryBox query={r.provider_query} />
-
-        {/* Flip condition + appeal direction */}
         {r.flip_condition && <FlipConditionBox condition={r.flip_condition} />}
         {r.appeal_direction && <AppealDirectionBox direction={r.appeal_direction} />}
       </div>
 
-      {/* ─── 3. QA AUDIT STRIP ───────────────────────────────────── */}
       {hasAuditScores && (
         <section className="rounded-3xl border border-[var(--border)] bg-[var(--card)]/80 p-6 shadow-sm">
           <div className="flex items-center gap-2 mb-5">
@@ -246,7 +231,6 @@ export default function ResultPage() {
         </section>
       )}
 
-      {/* ─── 4. APPEAL DRAFT ─────────────────────────────────────── */}
       {appealError && (
         <section className="rounded-3xl border border-rose-200 bg-rose-50 p-6">
           <p className="text-sm font-semibold text-rose-700 mb-1">Appeal Draft Error</p>
@@ -312,7 +296,6 @@ export default function ResultPage() {
         </section>
       )}
 
-      {/* ─── 5. FOOTER: timing + history ─────────────────────────── */}
       <ProcessingMetaFooter
         totalMs={r.processing_time_ms}
         step1Ms={r.step1_time_ms}
