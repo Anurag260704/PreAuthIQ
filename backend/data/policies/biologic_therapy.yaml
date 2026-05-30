@@ -1,0 +1,20 @@
+- id: C1
+  name: Definitive qualifying diagnosis
+  description: >
+    Established diagnosis for the requested biologic with corroborating
+    laboratory or imaging evidence in the authorization packet.
+- id: C2
+  name: Standard therapy inadequacy
+  description: >
+    Prior conventional agents were tried with documented non-response,
+    loss of effect, or intolerance meeting step-therapy requirements.
+- id: C3
+  name: Disease severity threshold
+  description: >
+    Objective markers or clinical scores indicate moderate-to-severe activity
+    warranting escalation to biologic therapy.
+- id: C4
+  name: Prerequisite therapy completion
+  description: >
+    Required step-therapy sequence and safety prerequisites are satisfied or
+    contraindicated with supporting documentation.

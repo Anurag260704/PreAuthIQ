@@ -1,0 +1,20 @@
+- id: C1
+  name: Chronic hypoxemia on record
+  description: >
+    Arterial blood gas or equivalent shows PaO2 at or below policy threshold,
+    or qualifying secondary findings when slightly above threshold.
+- id: C2
+  name: Daytime resting saturation
+  description: >
+    Awake room-air SpO2 at or below 88% sustained for the required duration
+    during daytime monitoring.
+- id: C3
+  name: Nocturnal oxygen desaturation
+  description: >
+    Sleep oximetry documents desaturation episodes meeting duration and
+    saturation thresholds for nocturnal oxygen coverage.
+- id: C4
+  name: Reversible causes excluded
+  description: >
+    Workup documents evaluation and exclusion of acute or treatable causes
+    of hypoxemia prior to long-term oxygen authorization.

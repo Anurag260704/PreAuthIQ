@@ -1,0 +1,20 @@
+- id: C1
+  name: Acute stability for rehab
+  description: >
+    Active medical issues are controlled sufficiently for safe participation
+    in intensive inpatient rehabilitation.
+- id: C2
+  name: Rehabilitative improvement potential
+  description: >
+    Functional trajectory supports meaningful gain from intensive therapy
+    at three or more hours per day.
+- id: C3
+  name: Multidisciplinary intensity need
+  description: >
+    Coordinated PT, OT, speech, or psychology services exceed what a lower
+    level of care can provide concurrently.
+- id: C4
+  name: Appropriate rehab setting
+  description: >
+    Inpatient rehabilitation is the least intensive setting that can meet
+    documented therapy intensity and safety needs.

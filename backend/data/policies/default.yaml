@@ -1,0 +1,15 @@
+- id: C1
+  name: Medical necessity established
+  description: >
+    Requested service is clinically indicated for the documented primary
+    condition under applicable medical policy.
+- id: C2
+  name: Prior therapy appropriateness
+  description: >
+    Standard or conservative treatments were attempted when required, or
+    contraindications are explicitly documented.
+- id: C3
+  name: Authorization packet completeness
+  description: >
+    Required clinical documentation and supporting records needed for
+    adjudication are present in the submission.

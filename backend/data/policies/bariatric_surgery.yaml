@@ -1,0 +1,20 @@
+- id: C1
+  name: BMI eligibility threshold
+  description: >
+    Body mass index meets surgical policy minimums, including comorbidity
+    exceptions when BMI is above the alternate threshold.
+- id: C2
+  name: Supervised weight-management trial
+  description: >
+    Documented participation in structured non-surgical weight loss with
+    insufficient sustained reduction when required by policy.
+- id: C3
+  name: Multidisciplinary clearance complete
+  description: >
+    Required medical, nutritional, and behavioral health evaluations are
+    completed per program standards.
+- id: C4
+  name: Informed consent documented
+  description: >
+    Patient acknowledges surgical risks, expected lifestyle changes, and
+    long-term follow-up obligations.

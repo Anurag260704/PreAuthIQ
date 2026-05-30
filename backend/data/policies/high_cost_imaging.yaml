@@ -1,0 +1,20 @@
+- id: C1
+  name: Established diagnosis context
+  description: >
+    Imaging indication is tied to a known diagnosis for staging, restaging,
+    or treatment response assessment rather than initial workup alone.
+- id: C2
+  name: Management impact expected
+  description: >
+    Results are reasonably expected to alter therapy selection, surveillance
+    interval, or biopsy planning.
+- id: C3
+  name: Timing within guidelines
+  description: >
+    Study interval aligns with accepted surveillance windows—not too early
+    to detect disease nor redundant after recent equivalent imaging.
+- id: C4
+  name: Prior imaging incorporated
+  description: >
+    Previous relevant studies were reviewed with comparison provided or
+    documented as unnecessary for the clinical question.

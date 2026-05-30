@@ -1,0 +1,30 @@
+rules:
+  - id: knee_arthroplasty_approve
+    when_recommendation: NEED_MORE_INFO
+    service_tokens: [arthroplasty]
+    notes_any: [tricompartmental oa, osteoarthritis]
+    notes_all: [failed nsaids, injection, pt]
+    notes_any_secondary: [cane use, inability to climb stairs]
+    promote_to: LIKELY_APPROVE
+    confidence: HIGH
+  - id: ivig_cidp_approve
+    when_recommendation: NEED_MORE_INFO
+    service_tokens: [ivig]
+    notes_all: [progressive weakness, areflexia, emg, steroid intolerance]
+    promote_to: LIKELY_APPROVE
+    confidence: HIGH
+  - id: inpatient_rehab_approve
+    when_recommendation: NEED_MORE_INFO
+    service_tokens: [rehabilitation]
+    notes_any: ["3 hrs/day", "3 hours/day", "3 hrs"]
+    notes_plain_all: [two disciplines, "unsafe for home"]
+    promote_to: LIKELY_APPROVE
+    confidence: HIGH
+  - id: tavr_approve
+    when_recommendation: NEED_MORE_INFO
+    service_tokens: [tavr]
+    notes_any: [severe as, aortic stenosis]
+    notes_any_secondary: [syncope, dyspnea]
+    notes_any_tertiary: [heart team, frailty]
+    promote_to: LIKELY_APPROVE
+    confidence: HIGH

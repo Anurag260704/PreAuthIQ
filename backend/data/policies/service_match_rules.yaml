@@ -1,0 +1,29 @@
+rules:
+  - keyword: cervical
+    policy_key: spine_surgery
+  - keyword: lumbar
+    policy_key: spine_surgery
+  - keyword: fusion
+    policy_key: spine_surgery
+  - keyword: decompression
+    policy_key: spine_surgery
+  - keyword: home oxygen
+    policy_key: dme_home_oxygen
+  - keyword: nocturnal
+    policy_key: dme_home_oxygen
+  - keyword: biologic
+    policy_key: biologic_therapy
+  - keyword: ivig
+    policy_key: biologic_therapy
+  - keyword: rehabilitation
+    policy_key: post_acute_rehab
+  - keyword: pet/ct
+    policy_key: high_cost_imaging
+  - keyword: pet scan
+    policy_key: high_cost_imaging
+  - keyword: bariatric
+    policy_key: bariatric_surgery
+  - keyword: tavr
+    policy_key: cardiovascular_procedure
+  - keyword: valve
+    policy_key: cardiovascular_procedure

@@ -1,0 +1,20 @@
+- id: C1
+  name: Hemodynamically significant valve disease
+  description: >
+    Echocardiography or equivalent confirms severe stenosis or regurgitation
+    with clinical hemodynamic consequence.
+- id: C2
+  name: Symptom severity concordance
+  description: >
+    Reported angina, dyspnea, or syncope aligns with the degree of valve
+    dysfunction on objective testing.
+- id: C3
+  name: Elevated open-surgical risk
+  description: >
+    STS estimate or clinical factors support prohibitive or high risk for
+    conventional surgical valve replacement.
+- id: C4
+  name: Transcatheter anatomical suitability
+  description: >
+    Vascular access and landing-zone anatomy are compatible with the
+    requested percutaneous valve procedure.

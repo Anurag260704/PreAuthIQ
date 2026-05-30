@@ -1,0 +1,30 @@
+- id: C1
+  name: Imaging-pathology alignment
+  description: >
+    Cross-sectional imaging demonstrates structural pathology at the level
+    that corresponds to the patient's symptom pattern or neurologic findings.
+- id: C2
+  name: Documented objective neurologic deficit
+  description: >
+    Qualified exam notes record motor weakness, sensory loss, reflex asymmetry,
+    or gait disturbance attributable to the requested intervention level.
+- id: C3
+  name: Adequate conservative therapy trial
+  description: >
+    At least 6-12 weeks of appropriate non-operative care (therapy, medications,
+    injections) with documented failure, intolerance, or clinical worsening.
+- id: C4
+  name: Functional limitation on record
+  description: >
+    Chart describes measurable ADL, occupational, or mobility impact clearly
+    linked to the qualifying diagnosis.
+- id: C5
+  name: Inpatient site-of-care rationale
+  description: >
+    Documentation supports inpatient versus ASC/outpatient placement based on
+    comorbidity burden, monitoring needs, or post-procedure risk profile.
+- id: C6
+  name: Policy prerequisites satisfied
+  description: >
+    Required pre-authorization steps (diagnostics, consultations, step therapy)
+    are completed or explicitly documented as not applicable.
